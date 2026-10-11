@@ -34,7 +34,21 @@
     ],
     "result": "2023년 대회에서 전원 문제 없이 임무를 마쳤고, 팀은 최우수 국방부장관상을 수상했습니다.",
     "limit": "퓨즈 차단 시간, 보드 교체 시간, 부팅 안정성 비율은 별도 측정 자료가 없어 수치로 제시하지 않습니다.",
-    "source": "프로젝트 제작 사진 · 캐리어 보드 사진 · 대회 수상 이력"
+    "source": "프로젝트 제작 사진 · 캐리어 보드 사진 · 대회 수상 이력",
+    "diagram": [
+      "ROS 2 상위 시스템",
+      "ODrive 구동 제어 · Micro-ROS 그리퍼 노드",
+      "바퀴 구동 · 그리퍼 동작"
+    ],
+    "diagramOwned": [
+      1
+    ],
+    "diagramLabel": "로봇의 제어 흐름",
+    "diagramNote": "제어 통합과 그리퍼 노드를 담당했습니다. 캐리어 보드·퓨즈 박스 설계와 USB 장치 식별도 맡았습니다.",
+    "video": {
+      "url": "https://photos.google.com/share/AF1QipMmsTQWikSgHDjni-KPug321w9uEuzP20osLtHEN9X8FlrtDKydBedrQI65frhO2Q/photo/AF1QipNU2rXVkbC8PWQpb4HNShGYWnQJQLVcTCr9ScoJ?key=aUJSXzhtdkZTMWJSNTNQbzJTWkNxN0Z3NmpqM213",
+      "caption": "꼬꼬 MK3 제작 당시 동작 영상 · 2023년"
+    }
   },
   "mir": {
     "number": "02",
@@ -101,7 +115,21 @@
     ],
     "result": "Raspberry Pi 중앙 제어기와 센서 통신을 구현하고 시제품을 제작해 업체에 전달했습니다.",
     "limit": "시제품 제작·전달까지 수행했습니다. 별도의 인수·검수와 납기 자료는 확보하지 않아 요구사항 충족률이나 납기 준수율을 제시하지 않습니다.",
-    "source": "시제품·제어부 사진 · 개발 당시 역할 기록"
+    "source": "시제품·제어부 사진 · 개발 당시 역할 기록",
+    "diagram": [
+      "이송 명령 · 센서 측정값",
+      "Raspberry Pi 제어 · RS485 데이터 통신",
+      "G-code 이송 · 상위 PC 데이터 전달"
+    ],
+    "diagramOwned": [
+      1
+    ],
+    "diagramLabel": "시제품의 제어·데이터 흐름",
+    "diagramNote": "USB Host 요구에 맞춰 제어기를 변경하고, 24채널 데이터 전달 규칙을 업체와 협의해 구현했습니다.",
+    "video": {
+      "url": "https://photos.app.goo.gl/KDp1rmvA8wr6K1U27",
+      "caption": "LED 검사기 시제품 개발 당시 영상 · 2024년"
+    }
   },
   "veda": {
     "number": "04",
@@ -131,7 +159,7 @@
       "별도 데이터 검증",
       "후보 저장 · 적용 권한 분리"
     ],
-    "diagramLabel": "구현한 처리 흐름",
+    "diagramLabel": "계산 모듈의 처리 흐름",
     "problem": "자연 장면을 촬영한 CCTV 영상과 1D LiDAR의 pan-tilt 스캔을 이용해 두 센서의 상대 위치·방향을 추정해야 했습니다. 계산상 평가 점수가 좋아도 실제 장착 자세와 일치하는지는 별도로 확인해야 했습니다.",
     "actions": [
       "센서 좌표계와 단위, 입출력 형식, 실패 조건을 문서화했습니다. ChArUco로 구한 카메라 내부 파라미터와 왜곡 계수(K+D)를 고정하고, 카메라와 LiDAR 사이의 회전·이동(R,t) 후보를 추정하는 계산 모듈을 개발했습니다.",
@@ -141,7 +169,29 @@
     "result": "CH1 실험의 Case B에서 후보 추정용 데이터 3건과 별도 검증 데이터 2건의 내부 기준을 모두 통과했습니다. 후보 간 목적함수 분리도는 6.4912%, Case C의 주 후보에서는 2.9436%였습니다. 분리도는 후보를 구분하는 평가 지표로, 물리적 정확도나 정확도 개선율을 뜻하지 않습니다.",
     "limit": "독립적인 위치·회전 기준, 제품용 별도 검증 데이터, 반복성·섭동 회복·오활성화 검증이 남아 있습니다. 따라서 후보 추정 결과를 제품 승인이나 자동 활성화 완료로 판단하지 않았습니다.",
     "source": "2026-08-24 CH1 실험 결과 · 후보 비교와 승인 조건 기록 · 공개 코드",
-    "github": "https://github.com/VEDA-4th-Oppenheimer/Automatic_Calibration_Part"
+    "github": "https://github.com/VEDA-4th-Oppenheimer/Automatic_Calibration_Part",
+    "overview": [
+      {
+        "label": "무엇을 추정했나요?",
+        "text": "카메라 영상과 LiDAR 점군이 같은 장면을 가리키도록, 두 센서 사이의 상대 위치와 방향을 추정하는 계산 모듈을 개발했습니다."
+      },
+      {
+        "label": "어디까지 검증했나요?",
+        "text": "탐색에 쓴 데이터와 별도 데이터를 나눠 후보를 비교했고, 일부 실험에서 내부 검증 기준을 통과했습니다. 후보가 자동 적용되지 않도록 상태와 권한을 분리했습니다."
+      },
+      {
+        "label": "무엇이 남았나요?",
+        "text": "독립적인 기준과 비교한 실제 위치·회전 오차와 제품용 반복성 검증은 완료하지 못했습니다. 프로젝트의 전체 목표를 기한 내 완성하지 못했으며 실제 적용은 보류했습니다."
+      }
+    ],
+    "diagramOwned": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "diagramNote": "캘리브레이션 계산과 검증을 담당했습니다. 모터 제어와 GUI 등 다른 팀원의 구현은 담당 범위에 포함하지 않습니다.",
+    "resultLabel": "실험 조건과 수치"
   },
   "meter": {
     "number": "05",
@@ -323,7 +373,7 @@
       return `<img src="${photoAssets[photo.key]}" alt="${caption}" ${lazy ? 'loading="lazy"' : ''} decoding="async">`;
     }
     function flowMarkup(data) {
-      return `<div class="flow-visual"><p>${escapeText(data.diagramLabel)}</p><ol>${data.diagram.map(item=>`<li>${escapeText(item)}</li>`).join('')}</ol></div>`;
+      return `<div class="flow-visual"><p>${escapeText(data.diagramLabel)}</p><ol>${data.diagram.map((item,index)=>`<li${data.diagramOwned?.includes(index) ? ' class="flow-owned"><strong>직접 담당</strong>' : '>'}${escapeText(item)}</li>`).join('')}</ol>${data.diagramNote ? `<p class="flow-note">${escapeText(data.diagramNote)}</p>` : ''}</div>`;
     }
     function reportMarkup(key, headingId) {
       const data = projectData[key];
@@ -336,11 +386,14 @@
           <p class="text-sm text-slate-300"><strong>나의 역할</strong> · ${escapeText(data.role)}</p>
           <p class="report-status">${escapeText(data.status)}</p>
         </div>
+        ${data.overview ? `<dl class="report-summary">${data.overview.map(item=>`<div><dt>${escapeText(item.label)}</dt><dd>${escapeText(item.text)}</dd></div>`).join('')}</dl>` : ''}
+        ${data.video ? `<div class="report-video no-print"><a class="button secondary" href="${escapeText(data.video.url)}" target="_blank" rel="noopener noreferrer">실제 동작 영상 보기 ↗</a><p>${escapeText(data.video.caption)} · Google 포토에서 새 탭으로 재생됩니다.</p></div>` : ''}
         ${data.photos.length ? `<div class="report-gallery mt-6">${data.photos.map(photo=>`<figure>${photoMarkup(photo)}<figcaption>${escapeText(photo.caption)}</figcaption></figure>`).join('')}</div>` : ''}
         ${data.diagram ? `<div class="mt-6 glass-panel">${flowMarkup(data)}</div>` : ''}
         <section class="report-section"><h4>문제와 목표</h4><p>${escapeText(data.problem)}</p></section>
         <section class="report-section"><h4>구현과 문제 해결</h4><ul>${data.actions.map(action=>`<li>${escapeText(action)}</li>`).join('')}</ul></section>
-        <section class="report-section"><h4>결과</h4><p>${escapeText(data.result)}</p></section>
+        <section class="report-section"><h4>${escapeText(data.resultLabel || '결과')}</h4><p>${escapeText(data.result)}</p></section>
+        <section class="report-section"><h4>남은 검증과 한계</h4><p>${escapeText(data.limit)}</p></section>
         ${data.github ? `<a class="inline-flex text-cyan-400 font-semibold mt-6" href="${data.github}" target="_blank" rel="noopener noreferrer">프로젝트 코드 ↗</a>` : ''}`;
     }
     const featuredProjectKeys = ['veda','koko','led'];
