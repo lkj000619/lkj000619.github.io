@@ -103,7 +103,7 @@
     [class*="bg-white/"] { background: var(--surface) !important; }
     #projectModal { background: rgba(36,36,36,.55); backdrop-filter: blur(5px); }
     #modalPanel { background: var(--page); border-color: var(--line); border-radius: 0; overscroll-behavior: contain; }
-    #modalClose { background: var(--surface); color: var(--ink); border-radius: 0; }
+    #modalClose { position: sticky; float: right; top: 0; right: 0; z-index: 2; margin-left: 12px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 0; }
     #modalContent { outline: none; }
     .flow-visual { height: 100%; padding: 18px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
     .flow-visual p { font-size: 11px; font-weight: 600; letter-spacing: .05em; color: var(--muted); }
