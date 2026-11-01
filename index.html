@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./styles.css?v=816666a18445">
+  <link rel="stylesheet" href="./styles.css?v=62cf9732e49f">
   <noscript><style>#printReports { display: block; } #printReports article { margin-top: 48px; } #projectGrid { display: none; }</style></noscript>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 </head>
@@ -82,9 +82,9 @@
         </div>
         <p>블루닷의 Video IP Team에서 AV1 인코더 레퍼런스 C 소프트웨어의 기능 개발과 검증에 참여했습니다.</p>
         <ul>
-          <li><strong>기능 개발·검증</strong> · 선임의 개선안을 적용·검증하고 보간 필터 RDO 코드를 수정했습니다.</li>
-          <li><strong>메모리 구조 개선 참여</strong> · 1080p 인코딩 프로세스의 메모리 사용량이 htop 기준 8GB → 4GB로 줄었습니다.</li>
-          <li><strong>테스트 자동화</strong> · Jenkins 규격 적합성 검사와 FPGA·소프트웨어의 중간 데이터 대조를 수행했습니다.</li>
+          <li><strong>기능 개발·검증</strong> · 선임의 개선안을 적용·검증하고 보간 필터 RDO 코드 및 10-bit 프레임 할당·저장 크기 계산·trace 복사 누락을 수정했습니다.</li>
+          <li><strong>메모리 구조 개선 참여</strong> · 불필요한 버퍼 할당과 구조체를 정리해 1080p 인코딩 프로세스의 메모리 사용량이 htop 기준 8GB → 4GB로 줄었습니다.</li>
+          <li><strong>FPGA 연동·테스트 자동화</strong> · OpenCL/XRT로 FPGA를 제어하는 호스트 프로그램에서 특정 로직들을 검증하고, diff와 trace·dump 비교로 문제를 분석했으며 Jenkins CI를 구성했습니다.</li>
           <li><strong>개발 환경 운영</strong> · 업무를 인계받아 Linux 머신의 환경 설정, 사용자 계정과 NFS/NIS를 관리했습니다.</li>
         </ul>
         <a href="#project-bluedot" data-project="bluedot" class="text-link">경력 상세 보기 ↗</a>
@@ -280,7 +280,7 @@
             <summary>만들고 배우고 나눈 이야기</summary>
             <div class="disclosure-content">
               <p>2017년, 고등학교 2학년 때 <a href="https://github.com/flthtmtlf/2017STEAMRnE_HomeAutomation" target="_blank" rel="noopener noreferrer" class="text-link">홈 자동화 연구 프로젝트 ↗</a>의 아이디어를 제안하고 연구계획서를 작성했습니다. 팀장으로 방향과 문서, 운영을 맡았고, 설계와 구현을 주로 담당한 팀원들에게 C와 Arduino를 배웠습니다.</p>
-              <p>2019–2023년에는 로봇 동아리 ‘앙치킨’에서 국방로봇 대회를 준비했습니다. 대학 생활의 많은 시간을 동아리에 보내며, 여러 해에 걸쳐 로봇을 만들고 대회에 도전했습니다.</p>
+              <p>2019–2023년에는 국방로봇경진대회 출전을 목표로 만들어진 로봇 동아리 ‘앙치킨’에서 활동했습니다. 신생 동아리라 로봇 제작비가 부족했기 때문에, 다른 경진대회나 지원 프로젝트에 참여해 상금과 지원금을 마련하고 이를 국방로봇 제작에 투입하며 여러 해에 걸쳐 대회를 준비했습니다. 초기에는 Python/C 폴링 구조로 개발하며 코드 수정과 팀원 코드 통합에 어려움을 겪었고, 이를 줄이려고 Linux와 ROS를 공부해 2021년과 2023년 로봇에 적용했습니다.</p>
               <p>‘일단 해 보자’는 마음만큼, 구현할 수 있는지 확인하는 과정도 중요하게 생각합니다. 팀원들과는 작업 중에도, 밥을 먹으면서도 접근과 기술 선택을 계속 이야기했습니다. 지금도 혼자 생각하는 데서 놓치는 부분을 다른 사람의 피드백으로 발견하는 대화를 좋아합니다.</p>
               <p>2019년에는 대회 로봇을 메이커 페어에 가져가 다른 제작자들과 작품 이야기를 나눴습니다. 2022년 7–8월에는 동아리원을 대상으로 Arduino 제어와 Linux/C 기초 소프트웨어 세미나를 진행했습니다.</p>
               <p>2021년부터 ADEX를 참관하며 방산 기술의 적용 사례를 살폈고, 2026년 8월에는 KCCV 첫날에 참석해 영상 이해·3D 점군과 영상 압축 연구를 접했습니다. 직접 만드는 경험과 함께, 다른 사람이 무엇을 만들고 연구하는지도 꾸준히 보고 싶습니다.</p>
@@ -398,8 +398,8 @@
         <div class="space-y-4 border-b border-white/10 pb-6">
           <p class="project-number">CAREER · 2025.02.17 ~ 2026.03.12</p>
           <h3 id="print-title-bluedot" class="font-sora text-2xl sm:text-3xl font-extrabold leading-tight pr-8">Bluedot · Video Codec Engineer</h3>
-          <p class="text-sm text-slate-400 leading-relaxed">AV1 레퍼런스 C 기능 추가·검증 · 메모리 구조 개선 · Jenkins CI 자동화</p>
-          <div class="project-tags"><span>C</span><span>AV1</span><span>Valgrind</span><span>Jenkins</span></div>
+          <p class="text-sm text-slate-400 leading-relaxed">AV1 레퍼런스 C 기능 추가·검증 · 메모리 구조 개선 · OpenCL/XRT 기반 FPGA 정합성 검증 · Jenkins CI</p>
+          <div class="project-tags"><span>C</span><span>AV1</span><span>OpenCL/XRT</span><span>Valgrind</span><span>Jenkins</span></div>
           <p class="text-sm text-slate-300"><strong>나의 역할</strong> · Video IP Team · Video Codec Engineer</p>
           <p class="report-status">재직 경력 · 1년 1개월</p>
         </div>
@@ -408,7 +408,7 @@
 
 
         <section class="report-section"><h4>문제와 목표</h4><p>AV1 인코더의 압축 효율과 메모리 사용량을 확인하고, 레퍼런스 C 소프트웨어와 FPGA 하드웨어의 처리 결과가 일치하는지 검증하는 업무였습니다.</p></section>
-        <section class="report-section"><h4>구현과 문제 해결</h4><ul><li>AV1 인코더 레퍼런스 C 소프트웨어의 기능 추가와 검증에 참여했습니다. 선임의 개선안을 적용·검증하고 Switchable Interpolation Filter의 RDO 처리 코드를 수정했습니다. MCTF와 10-bit 관련 기능도 분석·검증했습니다.</li><li>1080p 인코딩 과정에서 메모리를 할당하는 경로와 구조체가 사용되는 시점을 추적했습니다. 불필요한 할당과 저장 공간을 줄이는 구조 개선에 참여했습니다.</li><li>AWCY에서 PSNR·SSIM·VMAF로 영상 품질을 비교했습니다. trace·dump와 Valgrind로 처리 결과와 메모리 문제를 확인했습니다.</li><li>Jenkins로 자동 빌드와 규격 적합성 검사(Conformance Test), 실패 알림을 구성했습니다. FPGA 호스트 프로그램 검증에서는 레퍼런스 C와 중간 데이터를 대조해 값이 처음 달라지는 지점을 찾았습니다.</li><li>이전 관리자에게 업무를 인계받아 개발용 로컬 머신의 환경 설정, 호스트 사용자 계정과 NFS/NIS를 관리했습니다.</li></ul></section>
+        <section class="report-section"><h4>구현과 문제 해결</h4><ul><li>AV1 인코더 레퍼런스 C 소프트웨어의 기능 추가와 검증에 참여했습니다. 선임의 개선안을 적용·검증하고 Switchable Interpolation Filter의 RDO 처리 코드를 수정했습니다. 10-bit 영상 프레임을 할당·복사하는 과정과 샘플당 바이트 수가 누락된 파일 저장 크기 계산, 처리 기록(trace) 복사 누락 문제도 수정하고 Valgrind와 참조 데이터로 확인했습니다.</li><li>1080p 인코딩 과정에서 메모리를 할당하는 경로와 구조체가 사용되는 시점을 추적했습니다. 반복되는 불필요한 버퍼 할당과 저장 공간을 줄이는 구조 개선에 참여했습니다.</li><li>OpenCL/XRT 라이브러리를 활용해 FPGA를 제어하는 호스트 프로그램에서 사양서 기준으로 제어 신호와 온보드 DDR 데이터 입출력을 맞추고 특정 인코딩 로직들의 동작을 검증했습니다. 레퍼런스 C 모델과 FPGA 출력 차이를 diff 명령어로 확인한 뒤, 로직별 기록(trace)과 결과(dump) 파일을 비교해 문제가 생긴 로직을 먼저 좁혔습니다. FPGA 연산 문제는 로직 설계 담당자와 논의해 해결하고, 개발 중이던 호스트 프로그램의 문제는 직접 코드를 수정했습니다.</li><li>AWCY에서 PSNR·SSIM·VMAF로 영상 품질을 비교하며 코드 변경의 화질 영향을 확인했습니다. Jenkins로 자동 빌드와 규격 적합성 검사(Conformance Test), 실패 알림을 구성했습니다.</li><li>이전 관리자에게 업무를 인계받아 개발용 로컬 머신의 환경 설정, 호스트 사용자 계정과 NFS/NIS를 관리했습니다.</li></ul></section>
         <section class="report-section"><h4>결과</h4><p>1080p 인코딩 프로세스의 메모리 사용량은 htop 기준 8GB에서 4GB로 줄었습니다. 메모리 구조 개선에 참여했으며 알고리즘 검증과 자동화 환경 구성을 수행했습니다.</p></section>
         <section class="report-section"><h4>남은 검증과 한계</h4><p>메모리 수치는 1080p 인코딩 프로세스의 htop 관찰값이며 전체 칩 메모리와 구분됩니다. 선임의 개선안을 적용·검증하는 역할과 메모리 구조 개선 참여 범위를 기준으로 설명했습니다.</p></section>
         </article><article id="project-meter">
@@ -493,7 +493,7 @@
         <div class="report-gallery mt-6"><figure><img src="./assets/koko.jpg" alt="꼬꼬 MK3 실물 로봇"  decoding="async"><figcaption>꼬꼬 MK3 실물 로봇</figcaption></figure><figure><img src="./assets/board.jpg" alt="직접 설계·제작한 Teensy 4.0 기반 캐리어 보드"  decoding="async"><figcaption>직접 설계·제작한 Teensy 4.0 기반 캐리어 보드</figcaption></figure></div>
         <div class="mt-6 glass-panel"><div class="flow-visual"><p>로봇의 제어 흐름</p><ol><li>ROS 2 상위 시스템</li><li class="flow-owned"><strong>직접 담당</strong>ODrive 구동 제어 · Micro-ROS 그리퍼 노드</li><li>바퀴 구동 · 그리퍼 동작</li></ol><p class="flow-note">제어 통합과 그리퍼 노드를 담당했습니다. 캐리어 보드·퓨즈 박스 설계와 USB 장치 식별도 맡았습니다.</p></div></div>
         <section class="report-section"><h4>문제와 목표</h4><p>구동부와 그리퍼를 함께 제어하려면 분산된 배선과 여러 USB 장치를 안정적으로 연결해야 했습니다. 2021년 대회에서 겪은 합선 문제를 반복하지 않도록 전원 보호도 보완해야 했습니다.</p></section>
-        <section class="report-section"><h4>구현과 문제 해결</h4><ul><li>ODrive 구동부는 ROS 2로 제어하고, Teensy 4.0의 그리퍼 제어 코드는 Micro-ROS 노드로 작성해 상위 시스템과 연결했습니다.</li><li>센서와 모터 드라이버 배선을 소켓형 캐리어 보드(Custom Carrier Board)로 정리했습니다. 배터리와 구동부 사이에는 전원 보호용 퓨즈 박스를 추가했습니다.</li><li>장치 고유 ID와 udev 심볼릭 링크로 USB 장치를 구분했습니다. 무선 혼선은 5GHz 대역으로 전환하고 영상 해상도와 프레임률을 조절해 대응했습니다.</li></ul></section>
+        <section class="report-section"><h4>구현과 문제 해결</h4><ul><li>ODrive 구동부는 ROS 2로 제어하고, Arduino IDE를 활용해 Teensy 4.0의 그리퍼 제어 코드를 Micro-ROS 노드로 작성해 상위 시스템과 연결했습니다. 원격 통신 파트도 맡아 Wi-Fi 환경에서 ROS 2 기반 조이스틱 원격 조종과 RViz 카메라 화면 확인 기능을 구성했습니다.</li><li>전장과 회로 설계를 주도하며 2021년 대회의 합선 경험을 반영해 본체와 액추에이터의 전원 계통을 분리하고 보호용 퓨즈 박스를 추가했습니다. 팀원들의 피드백을 받아 센서와 모터 드라이버 배선을 소켓형 캐리어 보드(Custom Carrier Board)로 정리했습니다.</li><li>장치 고유 ID와 udev 심볼릭 링크로 USB 장치를 구분했습니다. 무선 혼선은 5GHz 대역으로 전환하고 영상 해상도와 프레임률을 조절해 대응했습니다.</li></ul></section>
         <section class="report-section"><h4>결과</h4><p>2023년 대회에서 전원 문제 없이 임무를 마쳤고, 팀은 최우수 국방부장관상을 수상했습니다.</p></section>
         <section class="report-section"><h4>남은 검증과 한계</h4><p>퓨즈 차단 시간, 보드 교체 시간, 부팅 안정성 비율은 별도 측정 자료가 없어 수치로 제시하지 않습니다.</p></section>
         </article><article id="project-cart">
@@ -574,7 +574,7 @@
       <div class="contact-grid">
         <div>
           <h3>임베디드 SW 채용,<br>기술 이야기, 그리고 커피챗</h3>
-          <p>비디오 코덱 개발과 로봇·센서 연동 경험을 이어 갈 일을 찾고 있습니다. 방산과 컴퓨터 비전 분야에 관심이 있습니다.</p>
+          <p>비디오 코덱 개발과 로봇·센서 연동 경험을 이어 갈 임베디드 SW 직무를 찾고 있습니다. 전장·모빌리티 제어와 로보틱스, 컴퓨터 비전 등 소프트웨어가 실제 하드웨어를 움직이는 분야에 관심이 있습니다.</p>
           <p class="mt-4">비슷한 주제를 만들고 있거나, 함께 고민해 보고 싶은 아이디어가 있다면 편하게 연락해 주세요.</p>
         </div>
         <div>
@@ -611,7 +611,7 @@
   </div>
 
   <!-- Project reports, photo assets and accessible detail navigation -->
-    <script src="./app.js?v=531295217c6c" defer></script>
+    <script src="./app.js?v=f0820e077cbc" defer></script>
 
 </body>
 </html>
