@@ -178,11 +178,11 @@
       },
       {
         "label": "어디까지 검증했나요?",
-        "text": "센서를 고정한 상태에서 추정 로직을 실행했습니다. 반복·위치 변경 시험에서는 매칭 성공과 실패가 섞였고, 일부 CH1 실험은 내부 후보 기준을 통과했습니다."
+        "text": "실물 센서 입력으로 추정 로직을 실행하고, 별도 검증 데이터로 후보를 비교했습니다. 내부 평가와 실제 위치·회전 정확도를 구분했습니다."
       },
       {
-        "label": "무엇이 남았나요?",
-        "text": "매칭의 안정성을 기한 내 확보하지 못해 전체 통합을 마치지 못했습니다. 실제 위치·회전 오차와 제품용 반복성도 검증 전이며, 2D LiDAR 기반의 후속 방향을 기획하고 있습니다."
+        "label": "직접 맡은 범위는?",
+        "text": "특징 추출·회전과 이동 후보 탐색·별도 데이터 검증·후보 저장과 적용 권한 분리를 담당했습니다. 모터와 앱의 구현·시험은 팀원이 맡았습니다."
       }
     ],
     "diagramOwned": [
@@ -446,7 +446,7 @@
         <section class="report-section"><h4>남은 검증과 한계</h4><p>${escapeText(data.limit)}</p></section>
         ${data.github ? `<a class="inline-flex text-cyan-400 font-semibold mt-6" href="${data.github}" target="_blank" rel="noopener noreferrer">프로젝트 코드 ↗</a>` : ''}`;
     }
-    const featuredProjectKeys = ['veda','koko','led'];
+    const featuredProjectKeys = ['koko','led','veda'];
     function cardMarkup(key) {
       const data = projectData[key];
       const cover = data.photos.length ? photoMarkup(data.photos[0], true) : flowMarkup(data);
